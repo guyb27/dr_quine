@@ -47,7 +47,7 @@ call sprintf
 mov rdi,buf
 mov rsi,right
 call fopen
-cmp rax,0;1 push en trop(c est l index)
+cmp rax,0
 je exit_failure
 push rax
 mov rdi,rax
@@ -56,15 +56,15 @@ mov rdx,10
 mov rcx,34
 mov r8,37
 mov r9,my_code
-pop r10;A rajouter
-push r10;A rajouter
+pop r10
+push r10
 xor rax,rax
 call fprintf
 pop rdi
 call fclose
 mov rdi,buf
 mov rsi,exec_line
-pop rdx;pop de l index
+pop rdx
 xor rax,rax
 call sprintf
 mov rdi,buf
@@ -74,7 +74,7 @@ pop rbp
 xor rax,rax
 ret
 section .data
-index_max db 5
+index_max db 37708384
 first_exec db "Sully",0
 right db "w+",0
 exec_line db "nasm -f elf64 Sully_%1$d.s && clang-9 Sully_%1$d.o -o Sully_%1$d && ./Sully_%1$d",0
